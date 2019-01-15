@@ -59,6 +59,22 @@ public class RSAUtil {
 		return bytes;
 	}
 
+	// ¹«Ô¿ÑéÇ©
+	public static byte[] publicDecrypt(byte[] content, PublicKey publicKey) throws Exception {
+		Cipher cipher = Cipher.getInstance("RSA");
+		cipher.init(Cipher.DECRYPT_MODE, publicKey);
+		byte[] bytes = cipher.doFinal(content);
+		return bytes;
+	}
+
+	// Ë½Ô¿Ç©Ãû
+	public static byte[] privateEncrypt(byte[] content, PrivateKey privateKey) throws Exception {
+		Cipher cipher = Cipher.getInstance("RSA");
+		cipher.init(Cipher.ENCRYPT_MODE, privateKey);
+		byte[] bytes = cipher.doFinal(content);
+		return bytes;
+	}
+
 	// Ë½Ô¿½âÃÜ
 	public static byte[] privateDecrypt(byte[] content, PrivateKey privateKey) throws Exception {
 		Cipher cipher = Cipher.getInstance("RSA");
